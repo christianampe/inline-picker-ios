@@ -1,0 +1,6 @@
+framework module Pods_FlatInlinePicker_Tests {
+  umbrella header "Pods-FlatInlinePicker_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - FlatInlinePicker (0.1.0)
+
+DEPENDENCIES:
+  - FlatInlinePicker (from `../`)
+
+EXTERNAL SOURCES:
+  FlatInlinePicker:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FlatInlinePicker: 52ab0932822c7e82d35ea1b82a9a39484e4f674a
+
+PODFILE CHECKSUM: cc76fa25417762634cad6135b82836a6775244de
+
+COCOAPODS: 1.5.0

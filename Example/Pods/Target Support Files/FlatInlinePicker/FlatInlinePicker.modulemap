@@ -1,0 +1,6 @@
+framework module FlatInlinePicker {
+  umbrella header "FlatInlinePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}
