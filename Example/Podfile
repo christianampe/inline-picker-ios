@@ -6,6 +6,5 @@ target 'FlatInlinePicker_Example' do
   target 'FlatInlinePicker_Tests' do
     inherit! :search_paths
 
-    
   end
 end
