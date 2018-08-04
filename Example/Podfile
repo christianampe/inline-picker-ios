@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'FlatInlinePicker_Example' do
+  pod 'FlatInlinePicker', :path => '../'
+
+  target 'FlatInlinePicker_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
