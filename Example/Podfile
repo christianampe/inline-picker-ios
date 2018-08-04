@@ -1,4 +1,5 @@
 use_frameworks!
+platform :ios, '9.3'
 
 target 'FlatInlinePicker_Example' do
   pod 'FlatInlinePicker', :path => '../'
