@@ -12,6 +12,14 @@ open class FlatInlinePicker: UIView {
     
     // MARK: IBInspectables
     @IBInspectable
-    open var interItemSpacing: CGFloat = 2.0
+    open var interitemSpacing: CGFloat = 2.0
+    
+    @IBInspectable
+    open var lineSpacing: CGFloat = 2.0
+    
+    @IBInspectable
+    open var padding: CGSize = .zero
+    
+    
     
 }
