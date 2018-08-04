@@ -1,9 +1,9 @@
 {
   "name": "FlatInlinePicker",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "A short description of FlatInlinePicker.",
   "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/christianampe/FlatInlinePicker",
+  "homepage": "https://github.com/educrate/flat-inline-picker",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +12,12 @@
     "christianampe": "christianampe.work@gmail.com"
   },
   "source": {
-    "git": "https://github.com/christianampe/FlatInlinePicker.git",
-    "tag": "0.1.0"
+    "git": "https://github.com/educrate/flat-inline-picker.git",
+    "tag": "0.0.1"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "9.3"
   },
+  "swift_version": "4.1",
   "source_files": "FlatInlinePicker/Classes/**/*"
 }
