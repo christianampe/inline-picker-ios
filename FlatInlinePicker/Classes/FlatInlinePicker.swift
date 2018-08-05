@@ -59,11 +59,16 @@ open class FlatInlinePicker: UIView {
 }
 
 extension FlatInlinePicker: UICollectionViewDelegate {
-    
+    public func collectionView(_ collectionView: UICollectionView,
+                               didSelectItemAt indexPath: IndexPath) {
+        
+        
+    }
 }
 
 extension FlatInlinePicker: UICollectionViewDataSource {
-    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    public func collectionView(_ collectionView: UICollectionView,
+                               cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlatInlinePickerCell.reuseIdentifier,
                                                             for: indexPath) as? FlatInlinePickerCell else {
@@ -73,5 +78,11 @@ extension FlatInlinePicker: UICollectionViewDataSource {
         }
         
         return cell
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        
+        
     }
 }
