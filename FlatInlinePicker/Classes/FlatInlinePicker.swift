@@ -10,6 +10,9 @@ import Foundation
 @IBDesignable
 open class FlatInlinePicker: UIView {
     
+    // MARK: Views
+    open weak var collectionView: UICollectionView!
+    
     // MARK: Storage
     open var delegate: FlatInlinePickerDelegate?
     open var dataSource: FlatInlinePickerDataSource?
@@ -52,5 +55,23 @@ open class FlatInlinePicker: UIView {
     public required init?(coder aDecoder: NSCoder) {
         
         super.init(coder: aDecoder)
+    }
+}
+
+extension FlatInlinePicker: UICollectionViewDelegate {
+    
+}
+
+extension FlatInlinePicker: UICollectionViewDataSource {
+    public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlatInlinePickerCell.reuseIdentifier,
+                                                            for: indexPath) as? FlatInlinePickerCell else {
+                                                                
+                                                                assert(false, "table view cell registration inconsistency")
+                                                                return UICollectionViewCell()
+        }
+        
+        return cell
     }
 }
