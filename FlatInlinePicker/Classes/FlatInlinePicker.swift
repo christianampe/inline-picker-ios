@@ -68,7 +68,7 @@ extension FlatInlinePicker: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FlatInlinePickerCell.reuseIdentifier,
                                                             for: indexPath) as? FlatInlinePickerCell else {
                                                                 
-                                                                assert(false, "table view cell registration inconsistency")
+                                                                assert(false, "collection view cell registration inconsistency")
                                                                 return UICollectionViewCell()
         }
         
