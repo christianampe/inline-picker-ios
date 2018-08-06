@@ -21,6 +21,35 @@ open class FlatInlinePicker: UIView {
     @IBInspectable
     open var padding: CGRect = FlatInlinePickerConfig.default.padding
     
+    @IBInspectable
+    open var selectedTextColor: UIColor = FlatInlinePickerConfig.default.cellConfig.selectedTextColor
+    
+    @IBInspectable
+    open var selectedBackgroundColor: UIColor = FlatInlinePickerConfig.default.cellConfig.selectedBackgroundColor
+    
+    @IBInspectable
+    open var selectedBorderColor: CGColor = FlatInlinePickerConfig.default.cellConfig.selectedBorderColor
+    
+    @IBInspectable
+    open var selectedBorderWidth: CGFloat = FlatInlinePickerConfig.default.cellConfig.selectedBorderWidth
+    
+    @IBInspectable
+    open var unselectedTextColor: UIColor = FlatInlinePickerConfig.default.cellConfig.unselectedTextColor
+    
+    @IBInspectable
+    open var unselectedBackgroundColor: UIColor = FlatInlinePickerConfig.default.cellConfig.unselectedBackgroundColor
+    
+    @IBInspectable
+    open var unselectedBorderColor: CGColor = FlatInlinePickerConfig.default.cellConfig.unselectedBorderColor
+    
+    @IBInspectable
+    open var unselectedBorderWidth: CGFloat = FlatInlinePickerConfig.default.cellConfig.unselectedBorderWidth
+    
+    @IBInspectable
+    open var cornerRadius: CGFloat = FlatInlinePickerConfig.default.cellConfig.cornerRadius
+    
+    @IBInspectable
+    open var spacing: UIEdgeInsets = FlatInlinePickerConfig.default.cellConfig.spacing
     
     // MARK: Designable Initalizers
     public convenience init() {
@@ -100,6 +129,21 @@ extension FlatInlinePicker {
         collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
         collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
         collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24).isActive = true
+    }
+    
+    func initConfig(_ config: FlatInlinePickerConfig) {
+        
+        padding = config.padding
+        selectedTextColor = config.cellConfig.selectedTextColor
+        selectedBackgroundColor = config.cellConfig.selectedBackgroundColor
+        selectedBorderColor = config.cellConfig.selectedBorderColor
+        selectedBorderWidth = config.cellConfig.selectedBorderWidth
+        unselectedTextColor = config.cellConfig.unselectedTextColor
+        unselectedBackgroundColor = config.cellConfig.unselectedBackgroundColor
+        unselectedBorderColor = config.cellConfig.unselectedBorderColor
+        unselectedBorderWidth = config.cellConfig.unselectedBorderWidth
+        cornerRadius = config.cellConfig.cornerRadius
+        spacing = config.cellConfig.spacing
     }
 }
 
