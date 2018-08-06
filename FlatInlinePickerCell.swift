@@ -82,16 +82,20 @@ private extension FlatInlinePickerCell {
     }
     
     func setSelected() {
+        label.textColor = .white
+        
         contentView.layer.borderColor = UIColor.clear.cgColor
         contentView.layer.borderWidth = 0
         
-        contentView.backgroundColor = UIColor.blue
+        contentView.backgroundColor = .blue
     }
     
     func setUnselected() {
+        label.textColor = .black
+        
         contentView.layer.borderColor = UIColor.black.cgColor
         contentView.layer.borderWidth = 1
         
-        contentView.backgroundColor = UIColor.clear
+        contentView.backgroundColor = .clear
     }
 }
