@@ -17,6 +17,7 @@
 		876CB2E454319CD65BF84954514AAE8D /* Pods-FlatInlinePicker_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C670A46C75BCC8D7009E22DA42C7FAE /* Pods-FlatInlinePicker_Example-dummy.m */; };
 		AFF15EB46884BE8E186C2C25C404AEDD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
 		BF48545121175EBD004AC14D /* FlatInlinePickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF48545021175EBD004AC14D /* FlatInlinePickerCell.swift */; };
+		BF485453211801AF004AC14D /* FlatInlinePickerCellConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF485452211801AF004AC14D /* FlatInlinePickerCellConfig.swift */; };
 		D92B9DB416EE4BC8648B6452EA8F91D5 /* Pods-FlatInlinePicker_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F62DB873B2CC4C88CDAF6D19A8C8F96C /* Pods-FlatInlinePicker_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E12F932A513B2EC15085EAFF9FDE8EAE /* FlatInlinePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678080E8DC0D332D62CF35525339D06 /* FlatInlinePicker.swift */; };
 		FA5CD0A209CDD4CBB4D41A232F957457 /* FlatInlinePicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = BA256F8656FF8BF3D180249DCA0736CE /* FlatInlinePicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -73,6 +74,7 @@
 		ABBF5BFE3B6F5C58181990ECC0422C0E /* FlatInlinePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FlatInlinePicker.modulemap; sourceTree = "<group>"; };
 		BA256F8656FF8BF3D180249DCA0736CE /* FlatInlinePicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FlatInlinePicker-umbrella.h"; sourceTree = "<group>"; };
 		BF48545021175EBD004AC14D /* FlatInlinePickerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatInlinePickerCell.swift; sourceTree = "<group>"; };
+		BF485452211801AF004AC14D /* FlatInlinePickerCellConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlatInlinePickerCellConfig.swift; sourceTree = "<group>"; };
 		D2BA57BCC9B338DF718AF161E4542F68 /* Pods-FlatInlinePicker_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FlatInlinePicker_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		D6949D434BF0A049F442DA8A8108C753 /* Pods-FlatInlinePicker_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FlatInlinePicker_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		D7C2F5ABE3506E388F57299C2BD356CE /* Pods-FlatInlinePicker_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FlatInlinePicker_Tests.modulemap"; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				9678080E8DC0D332D62CF35525339D06 /* FlatInlinePicker.swift */,
 				BF48545021175EBD004AC14D /* FlatInlinePickerCell.swift */,
 				D8A2CC10D9A67AC8D37BAAE7D9C4B065 /* FlatInlinePickerConfig.swift */,
+				BF485452211801AF004AC14D /* FlatInlinePickerCellConfig.swift */,
 				2B7A4E45AB9D5E62BDCD350E0D9F4799 /* FlatInlinePickerDataSource.swift */,
 				07C13C61D89FF889121DC4D87A9D6A51 /* FlatInlinePickerDelegate.swift */,
 				9F78AC67DA2613843B43598F47E9E887 /* Pod */,
@@ -363,6 +366,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF485453211801AF004AC14D /* FlatInlinePickerCellConfig.swift in Sources */,
 				7737F8F1AAA7D8853A3C72FF71CBCF21 /* FlatInlinePicker-dummy.m in Sources */,
 				E12F932A513B2EC15085EAFF9FDE8EAE /* FlatInlinePicker.swift in Sources */,
 				31083C3CA428CB5E16A1015637A12871 /* FlatInlinePickerConfig.swift in Sources */,
