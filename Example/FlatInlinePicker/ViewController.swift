@@ -7,18 +7,35 @@
 //
 
 import UIKit
+import FlatInlinePicker
 
 class ViewController: UIViewController {
+    
+    var pickers: [[String]] =
+    [
+        ["New","Pending", "Upcoming", "Expired",  "One","Two", "Three", "Four"],
+        ["One","Two", "Three", "Four"]
+    ]
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    @IBOutlet weak var flatInlinePicker: FlatInlinePicker!
 }
 
+
+extension ViewController {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        flatInlinePicker.dataSource = self
+        flatInlinePicker.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        flatInlinePicker.collectionView.reloadData()
+    }
+}
+
+extension ViewController: FlatInlinePickerDelegate {}
+
+extension ViewController: FlatInlinePickerDataSource {}

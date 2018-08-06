@@ -45,16 +45,67 @@ open class FlatInlinePicker: UIView {
                 delegate: FlatInlinePickerDelegate?,
                 dataSource: FlatInlinePickerDataSource?) {
         
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: 1, height: 1)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.collectionView = collectionView
+        
         self.delegate = delegate
         self.dataSource = dataSource
         
         super.init(frame: frame)
+        
+        setupTableView()
+        addViews()
+        addConstraints()
     }
     
     // MARK: Storyboard Initalizer
     public required init?(coder aDecoder: NSCoder) {
         
+        let layout = UICollectionViewFlowLayout()
+        layout.estimatedItemSize = CGSize(width: 1, height: 1)
+        
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        self.collectionView = collectionView
+        
         super.init(coder: aDecoder)
+        
+        setupTableView()
+        addViews()
+        addConstraints()
+    }
+}
+
+extension FlatInlinePicker {
+    func setupTableView() {
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        collectionView.register(FlatInlinePickerCell.self,
+                                forCellWithReuseIdentifier: FlatInlinePickerCell.reuseIdentifier)
+        
+        collectionView.backgroundColor = .white
+        
+        collectionView.allowsSelection = true
+        collectionView.allowsMultipleSelection = true
+    }
+    
+    func addViews() {
+        
+        addSubview(collectionView)
+    }
+    
+    func addConstraints() {
+        
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
+        collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 }
 
@@ -62,11 +113,43 @@ extension FlatInlinePicker: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView,
                                didSelectItemAt indexPath: IndexPath) {
         
+        print("selected \(indexPath)")
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               didDeselectItemAt indexPath: IndexPath) {
         
+        print("deselected \(indexPath)")
     }
 }
 
 extension FlatInlinePicker: UICollectionViewDataSource {
+    public func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        guard let dataSource = dataSource else {
+            
+            return 0
+        }
+        
+        return dataSource.numberOfSections()
+    }
+    
+    public func collectionView(_ collectionView: UICollectionView,
+                               numberOfItemsInSection section: Int) -> Int {
+        
+        guard let dataSource = dataSource else {
+            
+            return 0
+        }
+        
+        guard let itemCount = dataSource.numberOfItems(for: section) else {
+            
+            return 0
+        }
+        
+        return itemCount
+    }
+    
     public func collectionView(_ collectionView: UICollectionView,
                                cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -77,12 +160,20 @@ extension FlatInlinePicker: UICollectionViewDataSource {
                                                                 return UICollectionViewCell()
         }
         
+        guard let dataSource = dataSource else {
+            
+            assert(false, "a data source must be provided")
+            return UICollectionViewCell()
+        }
+        
+        guard let text = dataSource.text(for: indexPath) else {
+            
+            assert(false, "internal inconsistency - file a bug")
+            return UICollectionViewCell()
+        }
+        
+        cell.update(text)
+        
         return cell
-    }
-    
-    public func collectionView(_ collectionView: UICollectionView,
-                               numberOfItemsInSection section: Int) -> Int {
-        
-        
     }
 }
