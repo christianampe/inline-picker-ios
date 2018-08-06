@@ -8,11 +8,39 @@
 import Foundation
 
 open class FlatInlinePickerCell: UICollectionViewCell {
+    
+    // MARK: Storage
     open weak var label: UILabel!
+    
+    // MARK: Properties
+    open var config: FlatInlinePickerCellConfig = .default
     
     open func update(_ string: String) {
         
         label.text = string
+    }
+    
+    open func initConfig(selectedTextColor: UIColor,
+                         selectedBackgroundColor: UIColor,
+                         selectedBorderColor: CGColor,
+                         selectedBorderWidth: CGFloat,
+                         unselectedTextColor: UIColor,
+                         unselectedBackgroundColor: UIColor,
+                         unselectedBorderColor: CGColor,
+                         unselectedBorderWidth: CGFloat,
+                         cornerRadius: CGFloat,
+                         spacing: UIEdgeInsets) {
+        
+        config = FlatInlinePickerCellConfig(selectedTextColor: selectedTextColor,
+                                            selectedBackgroundColor: selectedBackgroundColor,
+                                            selectedBorderColor: selectedBorderColor,
+                                            selectedBorderWidth: selectedBorderWidth,
+                                            unselectedTextColor: unselectedTextColor,
+                                            unselectedBackgroundColor: unselectedBackgroundColor,
+                                            unselectedBorderColor: unselectedBorderColor,
+                                            unselectedBorderWidth: unselectedBorderWidth,
+                                            cornerRadius: cornerRadius,
+                                            spacing: spacing)
     }
     
     // MARK: Initalizers
@@ -56,7 +84,7 @@ public extension FlatInlinePickerCell {
 private extension FlatInlinePickerCell {
     func initViews() {
         
-        contentView.layer.cornerRadius = 3.0
+        contentView.layer.cornerRadius = config.cornerRadius
         contentView.layer.masksToBounds = true
     }
     
@@ -69,10 +97,10 @@ private extension FlatInlinePickerCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
-        label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
-        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
-        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+        label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: config.spacing.top).isActive = true
+        label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: config.spacing.left).isActive = true
+        label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: config.spacing.right).isActive = true
+        label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: config.spacing.bottom).isActive = true
     }
 }
 
@@ -82,20 +110,20 @@ private extension FlatInlinePickerCell {
     }
     
     func setSelected() {
-        label.textColor = .white
+        label.textColor = config.selectedTextColor
         
-        contentView.layer.borderColor = UIColor.clear.cgColor
-        contentView.layer.borderWidth = 0
+        contentView.layer.borderColor = config.selectedBorderColor
+        contentView.layer.borderWidth = config.selectedBorderWidth
         
-        contentView.backgroundColor = .blue
+        contentView.backgroundColor = config.selectedBackgroundColor
     }
     
     func setUnselected() {
-        label.textColor = .black
+        label.textColor = config.unselectedTextColor
         
-        contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.borderWidth = 1
+        contentView.layer.borderColor = config.unselectedBorderColor
+        contentView.layer.borderWidth = config.unselectedBorderWidth
         
-        contentView.backgroundColor = .clear
+        contentView.backgroundColor = config.unselectedBackgroundColor
     }
 }

@@ -19,7 +19,7 @@ open class FlatInlinePicker: UIView {
     
     // MARK: IBInspectables
     @IBInspectable
-    open var padding: CGRect = FlatInlinePickerConfig.default.padding
+    open var padding: UIEdgeInsets = FlatInlinePickerConfig.default.padding
     
     @IBInspectable
     open var selectedTextColor: UIColor = FlatInlinePickerConfig.default.cellConfig.selectedTextColor
@@ -125,10 +125,10 @@ extension FlatInlinePicker {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24).isActive = true
+        collectionView.topAnchor.constraint(equalTo: topAnchor, constant: padding.top).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: padding.left).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: padding.right).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: padding.top).isActive = true
     }
     
     func initConfig(_ config: FlatInlinePickerConfig) {
@@ -211,6 +211,17 @@ extension FlatInlinePicker: UICollectionViewDataSource {
         }
         
         cell.update(text)
+        
+        cell.initConfig(selectedTextColor: selectedTextColor,
+                        selectedBackgroundColor: selectedBackgroundColor,
+                        selectedBorderColor: selectedBorderColor,
+                        selectedBorderWidth: selectedBorderWidth,
+                        unselectedTextColor: unselectedTextColor,
+                        unselectedBackgroundColor: unselectedBackgroundColor,
+                        unselectedBorderColor: unselectedBorderColor,
+                        unselectedBorderWidth: unselectedBorderWidth,
+                        cornerRadius: cornerRadius,
+                        spacing: spacing)
         
         return cell
     }

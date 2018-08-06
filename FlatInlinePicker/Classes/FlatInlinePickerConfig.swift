@@ -8,10 +8,10 @@
 import Foundation
 
 public struct FlatInlinePickerConfig {
-    public let padding: CGRect
+    public let padding: UIEdgeInsets
     public let cellConfig: FlatInlinePickerCellConfig
     
-    public init(padding: CGRect,
+    public init(padding: UIEdgeInsets,
                 cellConfig: FlatInlinePickerCellConfig) {
         
         self.padding = padding
@@ -20,9 +20,9 @@ public struct FlatInlinePickerConfig {
 }
 
 public extension FlatInlinePickerConfig {
-    public static let `default` = FlatInlinePickerConfig(padding: CGRect(x: 20,
-                                                                         y: 20,
-                                                                         width: 20,
-                                                                         height: 20),
+    public static let `default` = FlatInlinePickerConfig(padding: UIEdgeInsets(top: 20,
+                                                                               left: 20,
+                                                                               bottom: -20,
+                                                                               right: -20),
                                                          cellConfig: .default)
 }
