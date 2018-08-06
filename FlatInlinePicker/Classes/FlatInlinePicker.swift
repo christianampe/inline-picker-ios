@@ -69,7 +69,7 @@ open class FlatInlinePicker: UIView {
                 dataSource: FlatInlinePickerDataSource?) {
         
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 1, height: 1)
+        layout.estimatedItemSize = CGSize(width: 40, height: 20)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         self.collectionView = collectionView
