@@ -8,19 +8,21 @@
 import Foundation
 
 public struct FlatInlinePickerConfig {
-    public let interitemSpacing: CGFloat
-    public let lineSpacing: CGFloat
     public let padding: CGRect
     public let cellConfig: FlatInlinePickerCellConfig
     
-    public init(interitemSpacing: CGFloat,
-                lineSpacing: CGFloat,
-                padding: CGRect,
+    public init(padding: CGRect,
                 cellConfig: FlatInlinePickerCellConfig) {
         
-        self.interitemSpacing = interitemSpacing
-        self.lineSpacing = lineSpacing
         self.padding = padding
         self.cellConfig = cellConfig
     }
+}
+
+public extension FlatInlinePickerConfig {
+    public static let `default` = FlatInlinePickerConfig(padding: CGRect(x: 20,
+                                                                         y: 20,
+                                                                         width: 20,
+                                                                         height: 20),
+                                                         cellConfig: .default)
 }
