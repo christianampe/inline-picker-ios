@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
     s.name             = 'FlatInlinePicker'
     s.version          = '0.0.1'
-    s.summary          = 'A short description of FlatInlinePicker.'
+    s.summary          = 'Flat designed inline selector.'
     
     # This description is used to generate tags and improve search results.
     #   * Think: What does it do? Why did you write it? What is the focus?
@@ -17,9 +17,7 @@ Pod::Spec.new do |s|
     #   * Write the description between the DESC delimiters below.
     #   * Finally, don't worry about the indent, CocoaPods strips it!
     
-    s.description      = <<-DESC
-    TODO: Add long description of the pod here.
-    DESC
+    s.description      = 'A flat designed inline selector which wraps when presented with too many options.  Useful for individuals who need a simple out of the box solution for multiselector.`
     
     s.homepage         = 'https://github.com/educrate/flat-inline-picker'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
