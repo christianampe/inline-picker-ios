@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     
     var pickers: [[String]] =
     [
-        ["New","Pending", "Upcoming", "Expired",  "One","Two", "Three", "Four"],
-        ["One","Two", "Three", "Four"]
+        ["New","Pending", "Upcoming", "Expired", "One","Two", "Three", "Four", "Test", "Physics", "Chemistry", "Biology", "Psychology"]
     ]
 
     @IBOutlet weak var flatInlinePicker: FlatInlinePicker!

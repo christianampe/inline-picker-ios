@@ -65,7 +65,7 @@ open class FlatInlinePicker: UIView {
     public required init?(coder aDecoder: NSCoder) {
         
         let layout = UICollectionViewFlowLayout()
-        layout.estimatedItemSize = CGSize(width: 1, height: 1)
+        layout.estimatedItemSize = CGSize(width: 40, height: 20)
         
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         self.collectionView = collectionView
@@ -102,10 +102,10 @@ extension FlatInlinePicker {
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         
-        collectionView.topAnchor.constraint(equalTo: topAnchor).isActive = true
-        collectionView.leftAnchor.constraint(equalTo: leftAnchor).isActive = true
-        collectionView.rightAnchor.constraint(equalTo: rightAnchor).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 24).isActive = true
+        collectionView.leftAnchor.constraint(equalTo: leftAnchor, constant: 24).isActive = true
+        collectionView.rightAnchor.constraint(equalTo: rightAnchor, constant: -24).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -24).isActive = true
     }
 }
 

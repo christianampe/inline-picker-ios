@@ -24,6 +24,7 @@ open class FlatInlinePickerCell: UICollectionViewCell {
         super.init(frame: frame)
         
         initViews()
+        
         addViews()
         addConstraints()
     }
@@ -35,10 +36,16 @@ open class FlatInlinePickerCell: UICollectionViewCell {
         
         super.init(coder: aDecoder)
         
+        initViews()
+        
         addViews()
         addConstraints()
-        
-        initViews()
+    }
+    
+    open override var isSelected: Bool {
+        didSet {
+            toggleSelection(isSelected)
+        }
     }
 }
 
@@ -49,9 +56,8 @@ public extension FlatInlinePickerCell {
 private extension FlatInlinePickerCell {
     func initViews() {
         
-        contentView.layer.borderColor = UIColor.black.cgColor
-        contentView.layer.cornerRadius = 2
-        contentView.layer.borderWidth = 1
+        contentView.layer.cornerRadius = 3.0
+        contentView.layer.masksToBounds = true
     }
     
     func addViews() {
@@ -63,9 +69,29 @@ private extension FlatInlinePickerCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         
-        label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 10).isActive = true
-        label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -10).isActive = true
+        label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
+        label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
         label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
         label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
+    }
+}
+
+private extension FlatInlinePickerCell {
+    func toggleSelection(_ isSelected: Bool) {
+        isSelected ? setSelected() : setUnselected()
+    }
+    
+    func setSelected() {
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.borderWidth = 0
+        
+        contentView.backgroundColor = UIColor.blue
+    }
+    
+    func setUnselected() {
+        contentView.layer.borderColor = UIColor.black.cgColor
+        contentView.layer.borderWidth = 1
+        
+        contentView.backgroundColor = UIColor.clear
     }
 }
