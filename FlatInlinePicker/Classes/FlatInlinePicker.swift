@@ -56,7 +56,7 @@ open class FlatInlinePicker: UIView {
         
         super.init(frame: frame)
         
-        setupTableView()
+        setupCollectionView()
         addViews()
         addConstraints()
     }
@@ -72,14 +72,14 @@ open class FlatInlinePicker: UIView {
         
         super.init(coder: aDecoder)
         
-        setupTableView()
+        setupCollectionView()
         addViews()
         addConstraints()
     }
 }
 
 extension FlatInlinePicker {
-    func setupTableView() {
+    func setupCollectionView() {
         
         collectionView.delegate = self
         collectionView.dataSource = self
